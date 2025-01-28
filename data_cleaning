@@ -1,0 +1,39 @@
+Data cleaning of Employee performance and salary using python
+___________________________________________________________________________________________________________________________________
+
+Step 1- Installing and importing the required libraries
+  
+!pip install pandas
+import pandas as pd
+___________________________________________________________________________________________________________________________________
+Step 2- Load the data into the data frame
+  
+df = pd.read_csv(r"C:\Users\rishi\OneDrive\Desktop\dataset.csv")  
+___________________________________________________________________________________________________________________________________  
+Step 3- Understand the data, look at the columns names, data type of the columns, no.of rows
+  
+df.head()
+df.sample()
+df.info()                                                          # checks the column name and type of column
+df.shape                                                           # checks the no.of rows and columns
+___________________________________________________________________________________________________________________________________  
+Step 4- Look for null values in the data to identify the columns containing null values
+  
+df.isnull
+df['Performance Score'].isnull                                     # rechecks the column with null values
+___________________________________________________________________________________________________________________________________  
+Step 5- Fill the null values
+
+df['Performance Score'].fillna(0, inplace=True)
+df['Performance Score'].isnull                                     # rechecks for null values
+___________________________________________________________________________________________________________________________________
+Step 6- Changing the data type of columns
+
+df['Performance Score']=df['Performance Score'].astype(int)
+df.dtypes                                                          # rechecks the data types of the columns
+___________________________________________________________________________________________________________________________________
+Step 7- Checking for duplciate rows and removing the duplicate rows
+
+df.duplicated()
+df.duplicated().sum()                                              # gives no.of duplicates
+df.drop_duplicates()                                               # drops duplicates
