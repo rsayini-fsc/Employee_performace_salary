@@ -1,7 +1,83 @@
 Exploratory data analysis
 
-Step 1 - Know the average, minimum and maximum values for the integer columns columns (important columns - Age, salary, performance score, experience)
+Step 1 - Descriptives of integer columns (mean, max, min, count, and std deviation)
+_______________________________________________________________________________________________________________________________________________
 
 df.describe()
 
-Step 2- 
+Step 2- Identify unique values in columns with conditons
+_______________________________________________________________________________________________________________________________________________
+
+
+unique_departments=df['Department'].unique()                                              # gives types of departments
+unique_departments
+
+unique_Gender=df['Gender'].unique()                                                       # gives types of gender
+unique_Gender
+
+unique_session=df['Session'].unique()                                                     # gives types of sessions/shifts
+unique_session
+
+Step 3- find count based on various categories(gender, salary, department, and performance score)
+_______________________________________________________________________________________________________________________________________________
+
+total_gender=df['Gender'].value_counts()                                                  # gives count based on gender
+total_gender
+
+total_employees_department=df.groupby(['Department'])['ID'].count()                       # gives count based on department
+total_employees_department
+
+total_employees_gender_department=df.groupby(['Gender','Department'])['ID'].count()  
+total_employees_gender_department                                                         # gives count based on gender and department
+
+Count_employees_salary_department= df.groupby('Salary_category')['ID'].count()            # gives count based on salary category
+Count_employees_salary_department
+
+
+count_employees_performance_scores=df.groupby("Performance Score")["ID"].count()
+count_employees_performance_scores                                                        # gives count based on Performance Score
+
+count_employee_shifts= df.groupby('Session')['ID'].count()
+count_employee_shifts                                                                     # gives count based on shift session
+
+count_employee_gender_shifts= df.groupby(['Gender','Session'])['ID'].count()
+count_employee_gender_shifts                                                              # gives count based on gender and shift session
+
+count_employee_gender_department_shifts= df.groupby(['Gender','Department','Session'])['ID'].count()
+count_employee_gender_department_shifts                                                   # gives count based on gender, department and shift session
+
+Step 4- Find aggregates (mean, min ,and max) based on salary, gender, and department
+_______________________________________________________________________________________________________________________________________________
+
+total_salary_gender=df.groupby('Gender')['Salary'].mean()                                  # gives average salary based on gender
+total_salary_gender
+
+
+total_salary_gender_department=df.groupby(['Gender','Department'])['Salary'].mean()        # gives average salary based on gender and department
+total_salary_gender_department
+
+agg_salary_department=df.groupby("Department")['Salary'].agg([max,min])                    # gives highest and lowest salary based on department 
+agg_salary_department
+
+
+agg_salary_gender_department=df.groupby(['Gender','Department'])['Salary'].agg([max,min])
+agg_salary_gender_department                                                                # gives highest and lowest salary based on gender and department
+
+Step 5 - find averages based on performance scores
+_______________________________________________________________________________________________________________________________________________
+
+average_performancescore_gender=df.groupby('Gender')['Performance Score'].mean()            
+average_performancescore_gender                                                             # gives average performance score based on gender
+
+
+average_performancedcore_gender_department = df.groupby(['Gender','Department'])['Performance Score'].mean()
+average_performancedcore_gender_department                                                   # gives average performance score based on gender and department
+
+Step 5 - find averages based on experience
+_______________________________________________________________________________________________________________________________________________
+
+avg_experience_gender = df.groupby('Gender')['Experience'].mean()    
+avg_experience_gender                                                                         # gives average expereince based on department
+
+avg_experience_department = df.groupby('Department')['Experience'].mean()
+avg_experience_department                                                                     # gives average expereince based on department
