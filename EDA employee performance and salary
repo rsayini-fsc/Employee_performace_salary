@@ -1,0 +1,7 @@
+Exploratory data analysis
+
+Step 1 - Know the average, minimum and maximum values for the integer columns columns (important columns - Age, salary, performance score, experience)
+
+df.describe()
+
+Step 2- 
