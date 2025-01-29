@@ -39,3 +39,11 @@ Step 7- Checking for duplciate rows and removing the duplicate rows
 df.duplicated()
 df.duplicated().sum()                                              # gives no.of duplicates
 df.drop_duplicates()                                               # drops duplicates
+
+Step 8 - Creating new columns based on conditions
+___________________________________________________________________________________________________________________________________
+
+df['Salary_category']=df['Salary'].apply(lambda x:
+"High Salary" if x >=8000 else
+"Medium Salary" if x >=6000
+else "Low Salary")
