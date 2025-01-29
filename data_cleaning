@@ -1,24 +1,26 @@
+Link for the dataset - https://www.kaggle.com/datasets/nadeemajeedch/employee-performance-and-salary-dataset
+------------------------------------------------------------------------------------------------------------
 Data cleaning of Employee performance and salary using python
-___________________________________________________________________________________________________________________________________
+-------------------------------------------------------------
 
 Step 1- Installing and importing the required libraries
-  
+
 !pip install pandas
 import pandas as pd
 ___________________________________________________________________________________________________________________________________
 Step 2- Load the data into the data frame
-  
+
 df = pd.read_csv(r"C:\Users\rishi\OneDrive\Desktop\dataset.csv")  
 ___________________________________________________________________________________________________________________________________  
 Step 3- Understand the data, look at the columns names, data type of the columns, no.of rows
-  
+
 df.head()
 df.sample()
 df.info()                                                          # checks the column name and type of column
 df.shape                                                           # checks the no.of rows and columns
 ___________________________________________________________________________________________________________________________________  
 Step 4- Look for null values in the data to identify the columns containing null values
-  
+
 df.isnull
 df['Performance Score'].isnull                                     # rechecks the column with null values
 ___________________________________________________________________________________________________________________________________  
